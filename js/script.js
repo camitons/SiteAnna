@@ -1,6 +1,6 @@
 // Fonction pour injecter le header
 function injectHeader() {
-    fetch('header.html')
+    fetch('FooterHeader/header.html')
         .then(response => response.text())
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
@@ -9,7 +9,7 @@ function injectHeader() {
 
 // Fonction pour injecter le footer
 function injectFooter() {
-    fetch('footer.html')
+    fetch('FooterHeader/footer.html')
         .then(response => response.text())
         .then(data => {
             document.body.insertAdjacentHTML('beforeend', data);
