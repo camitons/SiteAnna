@@ -17,7 +17,7 @@ function injectHeader() {
 
 // Fonction pour injecter le footer
 function injectFooter() {
-    fetch('/FooterHeader/footer.html')  // Utilisation d'un chemin absolu
+    fetch('../FooterHeader/footer.html')  // Utilisation d'un chemin absolu
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
