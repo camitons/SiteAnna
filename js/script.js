@@ -1,39 +1,21 @@
-// Fonction pour injecter le header
-function injectHeader() {
-    fetch('/FooterHeader/header.html')  // Utilisation d'un chemin absolu
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.text();
-        })
+// Fonction pour inclure le header
+function includeHeader() {
+    fetch('/FooterHeader/header.html')
+        .then(response => response.text())
         .then(data => {
-            document.body.insertAdjacentHTML('afterbegin', data);
-        })
-        .catch(error => {
-            console.error('Erreur lors du chargement du header:', error);
+            document.getElementById('header').innerHTML = data;
         });
 }
 
-// Fonction pour injecter le footer
-function injectFooter() {
-    fetch('../FooterHeader/footer.html')  // Utilisation d'un chemin absolu
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.text();
-        })
+// Fonction pour inclure le footer
+function includeFooter() {
+    fetch('/FooterHeader/footer.html')
+        .then(response => response.text())
         .then(data => {
-            document.body.insertAdjacentHTML('beforeend', data);
-        })
-        .catch(error => {
-            console.error('Erreur lors du chargement du footer:', error);
+            document.getElementById('footer').innerHTML = data;
         });
 }
 
-// Appel des fonctions
-document.addEventListener('DOMContentLoaded', (event) => {
-    injectHeader();
-    injectFooter();
-});
+// Appeler les fonctions pour inclure le header et le footer
+includeHeader();
+includeFooter();
